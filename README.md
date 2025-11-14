@@ -12,7 +12,7 @@ The prediction of the model compared the the annotation from the ArtEmis dataset
 # Install
 
 ```
-git clone https://github.com/robinszym/EmotionPredictor.git
+git clone git@github.com:Jessica-IX/EmotionPredictor.git
 cd EmotionPredictor
 pip install -e .
 pip install git+https://github.com/openai/CLIP.git
@@ -54,7 +54,7 @@ Result of the search "landscape" with each positive emotion.
 The demo is on its way. The embeddings of the test set of ArtEmis have to be put online.
 
 # About
-This project was carried as part of my Master thesis at the IVRL lab of EPFL.
+Forked from robinszym/EmotionPredictor
 
 
 

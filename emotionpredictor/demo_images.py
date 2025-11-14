@@ -2,8 +2,8 @@ import os
 import random
 
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
+from dash import html
 from dash.dependencies import Input, Output
 import torch
 import torch.nn as nn
@@ -41,12 +41,12 @@ class SLP(nn.Module):
         fp = self.layers(x.float())
         return fp
 
-MODEL_PATH = "../../code/C-RN50x16"
+MODEL_PATH = "neural_checkpoints/C-RN50x16"
 emotion = SLP(768)
 emotion.load_state_dict(torch.load(MODEL_PATH, map_location=torch.device('cpu')))
 wiki_base_url = "https://uploads6.wikiart.org/images/"
 
-test_set = pd.read_csv("../index2painting")
+test_set = pd.read_csv("index2painting")
 test_set = test_set["image_files"]
 random_paintings = test_set
 
@@ -110,4 +110,4 @@ clip_model, preprocess = clip.load("RN50x16")
 clip_model.eval();
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port = 8050)
+    app.run(debug=True, port=8050)
